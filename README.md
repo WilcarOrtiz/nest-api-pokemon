@@ -2,6 +2,15 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
 
+# 🐉 Pokedex App - NestJS
+
+> Aplicación desarrollada con **NestJS** y **MongoDB** para gestionar información de Pokémon.
+
+[![NestJS](https://img.shields.io/badge/NestJS-v10-orange?logo=nestjs)](https://nestjs.com/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-v5-green?logo=mongodb)](https://www.mongodb.com/)
+
+---
+
 # Ejecutar en desarrollo
 
 1. Clonar el repositorio
@@ -23,11 +32,12 @@ npm i -g @nestjs/cli
 docker-compose up -d
 ```
 
-5. Clonar el archivo  ```.env.template``` y renombrar la copia a ```.env```
+5. Clonar el archivo `.env.template` y renombrar la copia a `.env`
 
-6. Llenar las variables de entorno definida en el ```.env```
+6. Llenar las variables de entorno definida en el `.env`
 
 7. Ejecutar la aplicacion en dev:
+
 ```
 npm run start:dev
 ```
@@ -38,7 +48,12 @@ npm run start:dev
 http://localhost:3000/api/v2/seed
 ```
 
-## Stack usado
+# Production build
 
-- MongoDB
-- Nest
+1. crear el archivo **.env.prod**
+2. Llenar las variables de entorno de prod
+3. Crear la nueva imagen
+
+```
+docker-compose -f docker-compose.prod.yaml --env-file .env.prod up --build
+```

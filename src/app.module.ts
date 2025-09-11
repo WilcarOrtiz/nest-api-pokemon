@@ -21,7 +21,7 @@ import { JoiValidationSchema } from './config/joi.validation';
       rootPath: join(__dirname, '..', 'public'),
     }),
     MongooseModule.forRoot(process.env.MONGODB!,{
-      dbName:'pokemosDB' 
+      //dbName:'pokemosDB' 
       // *esto es para que al  momento de aprovisionar se cree la base con ese nombre (en railway o donde se aprovisione)
     }),
     PokemonModule,
