@@ -13,6 +13,7 @@ export class SeedService {
     private readonly http: AxiosAdaptar,
   ) {}
 
+  /* cambios */
   //! FORMA 1:para insetar lotes de registros de manera eficiente
   /*  async executeSeed() {
     await this.pokemonModel.deleteMany({});
