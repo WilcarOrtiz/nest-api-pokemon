@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación Completa - Sistema AgroCare</title>
+    <style>
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            line-height: 1.6;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20mm;
+            color: #333;
+            background: white;
+        }
+        h1 {
+            color: #2c5f2d;
+            font-size: 28pt;
+            border-bottom: 3px solid #2c5f2d;
+            padding-bottom: 10px;
+            margin-top: 30px;
+            page-break-after: avoid;
+        }
+        h2 {
+            color: #4a7c59;
+            font-size: 20pt;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            page-break-after: avoid;
+        }
+        h3 {
+            color: #5a8c6a;
+            font-size: 16pt;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            page-break-after: avoid;
+        }
+        h4 {
+            color: #6a9c7a;
+            font-size: 14pt;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            page-break-after: avoid;
+        }
+        p {
+            margin: 10px 0;
+            text-align: justify;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+        li {
+            margin: 5px 0;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 10pt;
+        }
+        .info-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+            page-break-inside: avoid;
+        }
+        .warning-box {
+            background-color: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 15px 0;
+            page-break-inside: avoid;
+        }
+        .example-box {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            page-break-inside: avoid;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            page-break-inside: avoid;
+        }
+        th {
+            background-color: #2c5f2d;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .cover-page {
+            text-align: center;
+            padding: 100px 0;
+            page-break-after: always;
+        }
+        .cover-title {
+            font-size: 36pt;
+            color: #2c5f2d;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .cover-subtitle {
+            font-size: 18pt;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        .toc {
+            page-break-after: always;
+        }
+        .toc-title {
+            font-size: 24pt;
+            color: #2c5f2d;
+            margin-bottom: 20px;
+        }
+        .toc-item {
+            margin: 8px 0;
+            padding-left: 20px;
+        }
+        .toc-level-1 {
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .toc-level-2 {
+            padding-left: 40px;
+        }
+        @media print {
+            body {
+                margin: 0;
+                padding: 15mm;
+            }
+            h1, h2, h3, h4 {
+                page-break-after: avoid;
+            }
+            .info-box, .warning-box, .example-box, table {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+ Portada 
+<div class="cover-page">
+    <div class="cover-title">SISTEMA AGROCARE</div>
+    <div class="cover-subtitle">Documentación Técnica Completa</div>
+    <p style="font-size: 14pt; color: #666;">Sistema de Gestión Agrícola Integral</p>
+    <p style="font-size: 12pt; color: #999; margin-top: 50px;">Versión 1.0</p>
+</div>
+
+Tabla de Contenidos 
+<div class="toc">
+    <h2 class="toc-title">Tabla de Contenidos</h2>
+    <div class="toc-item toc-level-1">1. Introducción al Sistema AgroCare</div>
+    <div class="toc-item toc-level-1">2. Visión General del Sistema</div>
+    <div class="toc-item toc-level-1">3. Componentes Principales</div>
+    <div class="toc-item toc-level-2">3.1 Clases de Información (Modelos)</div>
+    <div class="toc-item toc-level-2">3.2 Gestores del Sistema</div>
+    <div class="toc-item toc-level-2">3.3 Sistema Coordinador</div>
+    <div class="toc-item toc-level-2">3.4 Interfaz de Usuario</div>
+    <div class="toc-item toc-level-1">4. Explicación Detallada de Cada Componente</div>
+    <div class="toc-item toc-level-1">5. Relaciones Entre Componentes</div>
+    <div class="toc-item toc-level-1">6. Validaciones y Restricciones</div>
+    <div class="toc-item toc-level-1">7. Flujo Lógico del Sistema</div>
+    <div class="toc-item toc-level-1">8. Persistencia de Datos</div>
+    <div class="toc-item toc-level-1">9. Casos de Uso Prácticos</div>
+    <div class="toc-item toc-level-1">10. Conclusión</div>
+</div>
+
+ Contenido Principal 
+<h1>1. INTRODUCCIÓN AL SISTEMA AGROCARE</h1>
+
+<h2>¿Qué es AgroCare?</h2>
+<p>
+AgroCare es un <strong>sistema de gestión agrícola integral</strong> diseñado para ayudar a agricultores y administradores de fincas a llevar un control detallado y organizado de todas las actividades relacionadas con sus cultivos. Piensa en AgroCare como un "asistente digital" que registra, organiza y valida toda la información importante sobre tus cultivos.
+</p>
+
+<h2>¿Para qué sirve?</h2>
+<p>El sistema permite:</p>
+<ul>
+    <li><strong>Registrar cultivos:</strong> Guardar información sobre qué se está cultivando, dónde y cuándo.</li>
+    <li><strong>Controlar el riego:</strong> Llevar un historial de cuándo y cuánto se ha regado cada cultivo.</li>
+    <li><strong>Gestionar fertilizaciones:</strong> Registrar qué fertilizantes se han aplicado, en qué cantidades y cuándo.</li>
+    <li><strong>Documentar cosechas:</strong> Anotar cuándo se cosechó, qué cantidad se obtuvo y calcular el rendimiento.</li>
+    <li><strong>Generar reportes:</strong> Crear resúmenes automáticos de todas las actividades por temporada.</li>
+</ul>
+
+<div class="info-box">
+    <strong>💡 Analogía Simple:</strong> Si una finca fuera una empresa, AgroCare sería como el sistema contable y de inventario, pero en lugar de llevar cuentas de dinero, lleva cuentas de cultivos, agua, fertilizantes y cosechas.
+</div>
+
+<h2>¿Por qué es importante?</h2>
+<p>
+Sin un sistema como AgroCare, toda esta información estaría dispersa en papeles, cuadernos o en la memoria de las personas. AgroCare centraliza todo en un solo lugar, asegurándose de que:
+</p>
+<ul>
+    <li>No se pierda información importante</li>
+    <li>Los datos sean consistentes y confiables</li>
+    <li>Se puedan tomar decisiones basadas en información histórica</li>
+    <li>Se cumplan las reglas del negocio (por ejemplo, no se puede cosechar un cultivo que no existe)</li>
+</ul>
+
+<hr style="margin: 30px 0;">
+
+<h1>2. VISIÓN GENERAL DEL SISTEMA</h1>
+
+<h2>Arquitectura del Sistema</h2>
+<p>
+AgroCare está construido siguiendo una arquitectura de <strong>capas</strong>, similar a cómo se construye un edificio: cada piso tiene una función específica y se apoya en el piso de abajo.
+</p>
+
+<table>
+    <tr>
+        <th>Capa</th>
+        <th>Función</th>
+        <th>Componentes</th>
+    </tr>
+    <tr>
+        <td><strong>Capa de Presentación</strong></td>
+        <td>Interacción con el usuario</td>
+        <td>ProyectoAgroCare (menús y pantallas)</td>
+    </tr>
+    <tr>
+        <td><strong>Capa de Coordinación</strong></td>
+        <td>Coordina todas las operaciones</td>
+        <td>SistemaAgroCare</td>
+    </tr>
+    <tr>
+        <td><strong>Capa de Lógica de Negocio</strong></td>
+        <td>Reglas y validaciones</td>
+        <td>Gestores (GestorCultivo, GestorRiego, etc.)</td>
+    </tr>
+    <tr>
+        <td><strong>Capa de Datos</strong></td>
+        <td>Almacenamiento de información</td>
+        <td>Clases de modelo (Cultivo, Riego, etc.)</td>
+    </tr>
+    <tr>
+        <td><strong>Capa de Utilidades</strong></td>
+        <td>Herramientas auxiliares</td>
+        <td>FormateadorDatos, UnidadFertilizante</td>
+    </tr>
+</table>
+
+<h2>Flujo General de Información</h2>
+<div class="example-box">
+    <strong>Ejemplo de flujo cuando un usuario registra un riego:</strong>
+    <ol>
+        <li><strong>Usuario</strong> → Selecciona "Registrar Riego" en el menú (ProyectoAgroCare)</li>
+        <li><strong>Sistema</strong> → Solicita información: ID del cultivo, cantidad de agua, fecha (ProyectoAgroCare)</li>
+        <li><strong>Usuario</strong> → Ingresa los datos</li>
+        <li><strong>Coordinador</strong> → Recibe la solicitud y la envía al gestor correspondiente (SistemaAgroCare)</li>
+        <li><strong>Gestor</strong> → Valida que el cultivo exista y que los datos sean correctos (GestorRiego)</li>
+        <li><strong>Gestor</strong> → Si todo está bien, crea el registro de riego y lo guarda (GestorRiego)</li>
+        <li><strong>Sistema</strong> → Confirma al usuario que el riego fue registrado exitosamente</li>
+    </ol>
+</div>
+
+<hr style="margin: 30px 0;">
+
+<h1>3. COMPONENTES PRINCIPALES</h1>
+
+<h2>3.1 Clases de Información (Modelos)</h2>
+<p>
+Estas clases son como "formularios" o "plantillas" que definen qué información se guarda sobre cada cosa. Son la base de datos del sistema.
+</p>
+
+<h3>📋 Cultivo</h3>
+<p><strong>¿Qué es?</strong> Representa un cultivo específico en la finca.</p>
+<p><strong>¿Qué información guarda?</strong></p>
+<ul>
+    <li><code>id</code>: Número único que identifica al cultivo (como una cédula)</li>
+    <li><code>tipoPlanta</code>: Nombre del cultivo (ej: "Maíz", "Tomate")</li>
+    <li><code>fechaSiembra</code>: Cuándo se sembró</li>
+    <li><code>area</code>: metros cuadrados de siembra</li>
+    <li><code>observacion</code>: informacion extra (opcional)</li>
+</ul>
+
+<h3>💧 Riego</h3>
+<p><strong>¿Qué es?</strong> Representa un evento de riego realizado o programado.</p>
+<p><strong>¿Qué información guarda?</strong></p>
+<ul>
+    <li><code>id</code>: Identificador único del riego</li>
+    <li><code>idCultivo</code>: A qué cultivo se le aplicó el riego</li>
+    <li><code>cantidadAgua</code>: Cuántos litros de agua se usaron</li>
+    <li><code>fecha</code>: Cuándo se realizó o se realizará</li>
+    <li><code>esProgramado</code>: riego programado</li>
+</ul>
+
+<h3>🌱 Fertilizacion</h3>
+<p><strong>¿Qué es?</strong> Representa la aplicación de fertilizante a un cultivo.</p>
+<p><strong>¿Qué información guarda?</strong></p>
+<ul>
+    <li><code>id</code>: Identificador único</li>
+    <li><code>idCultivo</code>: A qué cultivo se le aplicó</li>
+    <li><code>tipoFertilizante</code>: Qué tipo de fertilizante (ej: "Nitrógeno", "Orgánico")</li>
+    <li><code>cantidad</code>: Cuánto se aplicó</li>
+    <li><code>unidad</code>: En qué unidad (KG, LITROS, METROS_CUBICOS)</li>
+    <li><code>fecha</code>: Cuándo se aplicó</li>
+</ul>
+
+<h3>🌾 Cosecha</h3>
+<p><strong>¿Qué es?</strong> Representa el resultado de cosechar un cultivo.</p>
+<p><strong>¿Qué información guarda?</strong></p>
+<ul>
+    <li><code>id</code>: Identificador único</li>
+    <li><code>idCultivo</code>: Qué cultivo se cosechó</li>
+    <li><code>cantidad</code>: Cuántos kilogramos se obtuvieron</li>
+    <li><code>fecha</code>: Cuándo se cosechó</li>
+    <li><code>rendimiento</code>: Cálculo automático de productividad</li>
+</ul>
+
+<h3>📊 Reporte</h3>
+<p><strong>¿Qué es?</strong> Un reporte individual de producción de UN cultivo específico durante una temporada.</p>
+<p><strong>¿Qué información guarda?</strong></p>
+<ul>
+    <li><code>nombreTemporada</code>: Nombre de la temporada</li>
+    <li><code>fechaInicio</code>: Fecha de inicio del período del reporte</li>
+    <li><code>fechaFin</code>: Fecha de fin del período del reporte</li>
+    <li><code>cultivoId</code>: ID del cultivo al que pertenece este reporte</li>
+    <li><code>tipoPlanta</code>: Tipo de planta del cultivo</li>
+    <li><code>fechaSiembra</code>: Cuándo se sembró el cultivo</li>
+    <li><code>numeroRiegos</code>: Cantidad de riegos en el período</li>
+    <li><code>litrosUsados</code>: Total de litros de agua usados</li>
+    <li><code>numeroFertilizaciones</code>: Cantidad de fertilizaciones aplicadas</li>
+    <li><code>numeroCosechas</code>: Cantidad de cosechas realizadas</li>
+    <li><code>kgCosechados</code>: Total de kilogramos cosechados</li>
+    <li><code>rendimientoPromedio</code>: Promedio de rendimiento de las cosechas</li>
+    <li><code>observaciones</code>: Notas adicionales del cultivo</li>
+</ul>
+
+<div class="info-box">
+    <strong>💡 Característica Importante:</strong> La clase Reporte es inmutable (solo tiene getters, no setters). Una vez creado un reporte, no se puede modificar. Esto garantiza la integridad de los datos históricos.
+</div>
+
+<h2>3.2 Gestores del Sistema</h2>
+<p>
+Los gestores son como "administradores especializados". Cada gestor se encarga de una cosa específica y conoce todas las reglas relacionadas con esa cosa.
+</p>
+
+<div class="info-box">
+    <strong>💡 Analogía:</strong> Si las clases de información son como formularios en blanco, los gestores son como los empleados que saben cómo llenar esos formularios correctamente, dónde archivarlos y qué reglas seguir.
+</div>
+
+<h3>🔧 GestorCultivo</h3>
+<p><strong>Responsabilidad:</strong> Administrar todo lo relacionado con cultivos.</p>
+<p><strong>Funciones principales:</strong></p>
+<ul>
+    <li><strong>Agregar cultivo:</strong> Crear un nuevo cultivo validando que no exista otro con el mismo ID</li>
+    <li><strong>Buscar cultivo:</strong> Encontrar un cultivo por su ID</li>
+    <li><strong>Listar cultivos:</strong> Mostrar todos los cultivos (activos, inactivos o todos)</li>
+    <li><strong>Modificar cultivo:</strong> Cambiar información de un cultivo existente</li>
+    <li><strong>Eliminar cultivo:</strong> Borrar un cultivo (solo si no tiene actividades asociadas)</li>
+    <li><strong>Desactivar cultivo:</strong> Marcar un cultivo como inactivo sin borrarlo</li>
+</ul>
+
+<div class="warning-box">
+    <strong>⚠️ Regla Importante:</strong> No se puede eliminar un cultivo si tiene riegos, fertilizaciones o cosechas asociadas. Esto protege la integridad de los datos históricos.
+</div>
+
+<h3>💧 GestorRiego</h3>
+<p><strong>Responsabilidad:</strong> Administrar todos los riegos.</p>
+<p><strong>Funciones principales:</strong></p>
+<ul>
+    <li><strong>Registrar riego:</strong> Crear un nuevo registro de riego</li>
+    <li><strong>Buscar riego:</strong> Encontrar un riego específico</li>
+    <li><strong>Listar riegos:</strong> Mostrar todos los riegos o filtrar por cultivo</li>
+    <li><strong>Marcar como ejecutado:</strong> Cambiar el estado de un riego programado a ejecutado</li>
+    <li><strong>Eliminar riego:</strong> Borrar un registro de riego</li>
+    <li><strong>Contar riegos:</strong> Saber cuántos riegos tiene un cultivo</li>
+</ul>
+
+<div class="warning-box">
+    <strong>⚠️ Validación Crítica:</strong> Solo se puede registrar un riego si el cultivo existe y está activo. Esto evita registrar riegos para cultivos inexistentes o ya cosechados.
+</div>
+
+<h3>🌱 GestorFertilizacion</h3>
+<p><strong>Responsabilidad:</strong> Administrar todas las fertilizaciones.</p>
+<p><strong>Funciones principales:</strong></p>
+<ul>
+    <li><strong>Registrar fertilización:</strong> Crear un nuevo registro</li>
+    <li><strong>Buscar fertilización:</strong> Encontrar una fertilización específica</li>
+    <li><strong>Listar fertilizaciones:</strong> Mostrar todas o filtrar por cultivo</li>
+    <li><strong>Eliminar fertilización:</strong> Borrar un registro</li>
+    <li><strong>Contar fertilizaciones:</strong> Saber cuántas fertilizaciones tiene un cultivo</li>
+</ul>
+
+<div class="warning-box">
+    <strong>⚠️ Validación Crítica:</strong> Solo se puede registrar una fertilización si el cultivo existe y está activo.
+</div>
+
+<h3>🌾 GestorCosecha</h3>
+<p><strong>Responsabilidad:</strong> Administrar todas las cosechas.</p>
+<p><strong>Funciones principales:</strong></p>
+<ul>
+    <li><strong>Registrar cosecha:</strong> Crear un nuevo registro de cosecha</li>
+    <li><strong>Buscar cosecha:</strong> Encontrar una cosecha específica</li>
+    <li><strong>Listar cosechas:</strong> Mostrar todas o filtrar por cultivo</li>
+    <li><strong>Eliminar cosecha:</strong> Borrar un registro</li>
+    <li><strong>Contar cosechas:</strong> Saber cuántas cosechas tiene un cultivo</li>
+    <li><strong>Calcular rendimiento:</strong> Automáticamente calcula kg/día desde la siembra</li>
+</ul>
+
+<div class="warning-box">
+    <strong>⚠️ Validación Crítica:</strong> Solo se puede registrar una cosecha si el cultivo existe y está activo.
+</div>
+
+<h3>📊 GestorReporte</h3>
+<p><strong>Responsabilidad:</strong> Generar reportes individuales por cultivo para un período específico.</p>
+<p><strong>Funciones principales:</strong></p>
+<ul>
+    <li><strong>Generar reporte por temporada:</strong> Crea reportes individuales para cada cultivo que tuvo actividad en un rango de fechas</li>
+    <li><strong>Obtener todos:</strong> Lista todos los reportes generados</li>
+    <li><strong>Buscar por temporada:</strong> Encuentra todos los reportes de una temporada específica</li>
+    <li><strong>Filtrar actividades:</strong> Filtra riegos, fertilizaciones y cosechas por rango de fechas</li>
+    <li><strong>Calcular estadísticas:</strong> Suma totales de litros, kg, y calcula promedios</li>
+</ul>
+
+<div class="info-box">
+    <strong>💡 Funcionamiento del GestorReporte:</strong> Cuando se genera un reporte para una temporada, el sistema crea UN reporte separado para CADA cultivo que tuvo actividad en ese período. Cada reporte contiene las estadísticas específicas de ese cultivo individual.
+</div>
+
+<h2>3.3 Sistema Coordinador</h2>
+
+<h3>🎯 SistemaAgroCare</h3>
+<p><strong>¿Qué es?</strong> Es el "cerebro" del sistema. Coordina a todos los gestores y se asegura de que trabajen juntos correctamente.</p>
+
+<p><strong>Responsabilidades principales:</strong></p>
+<ul>
+    <li><strong>Inicialización:</strong> Crea todos los gestores cuando el sistema arranca</li>
+    <li><strong>Coordinación:</strong> Conecta los gestores entre sí para que puedan comunicarse</li>
+    <li><strong>Persistencia:</strong> Guarda y carga datos desde archivos</li>
+    <li><strong>Acceso centralizado:</strong> Proporciona un punto único para acceder a cualquier gestor</li>
+</ul>
+
+<div class="example-box">
+    <strong>Ejemplo de coordinación:</strong>
+    <p>Cuando el GestorCultivo necesita saber si un cultivo tiene riegos antes de eliminarlo, le pregunta al GestorRiego a través de SistemaAgroCare. Así, los gestores no necesitan conocerse directamente entre sí.</p>
+</div>
+
+<h2>3.4 Interfaz de Usuario</h2>
+
+<h3>🖥️ ProyectoAgroCare</h3>
+<p><strong>¿Qué es?</strong> Es la "cara" del sistema, lo que el usuario ve y con lo que interactúa.</p>
+
+<p><strong>Características:</strong></p>
+<ul>
+    <li>Menú principal con 6 opciones</li>
+    <li>Submenús para cada tipo de operación</li>
+    <li>Formularios para capturar datos del usuario</li>
+    <li>Mensajes de confirmación y error</li>
+    <li>Visualización de información formateada</li>
+</ul>
+
+<p><strong>Estructura del menú:</strong></p>
+<ol>
+    <li><strong>Gestión de Cultivos</strong> (agregar, listar, modificar, eliminar, desactivar)</li>
+    <li><strong>Gestión de Fertilizaciones</strong> (registrar, listar, eliminar)</li>
+    <li><strong>Gestión de Riegos</strong> (registrar, listar, marcar ejecutado, eliminar)</li>
+    <li><strong>Gestión de Cosechas</strong> (registrar, listar, eliminar)</li>
+    <li><strong>Gestión de Reportes</strong> (generar, listar, eliminar)</li>
+    <li><strong>Salir</strong> (guarda datos y cierra el programa)</li>
+</ol>
+
+<h2>3.5 Utilidades</h2>
+
+<h3>📝 FormateadorDatos</h3>
+<p><strong>¿Qué es?</strong> Una herramienta que convierte la información técnica en texto legible y bien presentado.</p>
+<p><strong>Función:</strong> Toma objetos (Cultivo, Riego, etc.) y los convierte en texto formateado para mostrar en pantalla.</p>
+
+<h3>📏 UnidadFertilizante</h3>
+<p><strong>¿Qué es?</strong> Una lista predefinida de unidades de medida para fertilizantes.</p>
+<p><strong>Opciones disponibles:</strong></p>
+<ul>
+    <li>KG (kilogramos)</li>
+    <li>LITROS</li>
+    <li>METROS_CUBICOS</li>
+</ul>
+
+<hr style="margin: 30px 0;">
+
+<h1>4. EXPLICACIÓN DETALLADA DE CADA COMPONENTE</h1>
+
+<h2>4.1 Clase Cultivo - Análisis Profundo</h2>
+
+<h3>Atributos y su Significado</h3>
+<table>
+    <tr>
+        <th>Atributo</th>
+        <th>Tipo</th>
+        <th>Descripción</th>
+        <th>Ejemplo</th>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>Número entero</td>
+        <td>Identificador único, como una cédula</td>
+        <td>1001</td>
+    </tr>
+    <tr>
+        <td>tipoPlanta</td>
+        <td>Texto</td>
+        <td>Nombre del cultivo</td>
+        <td>"Tomate Cherry"</td>
+    </tr>
+    <tr>
+        <td>area</td>
+        <td>Numero entero</td>
+        <td>Cuantos metros cuadrados</td>
+        <td>"100"</td>
+    </tr>
+    <tr>
+        <td>fechaSiembra</td>
+        <td>Fecha</td>
+        <td>Cuándo se sembró</td>
+        <td>15/03/2024</td>
+    </tr>
+    <tr>
+        <td>observacion</td>
+        <td>Texto</td>
+        <td>info extra</td>
+        <td>"2024-Primavera"</td>
+    </tr>
+</table>
+
+<h3>Métodos (Acciones) del Cultivo</h3>
+<ul>
+    <li><strong>Constructor:</strong> Crea un nuevo cultivo con todos sus datos</li>
+    <li><strong>Getters:</strong> Permiten leer cada dato (getId, getNombre, etc.)</li>
+    <li><strong>Setters:</strong> Permiten modificar cada dato (setNombre, setUbicacion, etc.)</li>
+</ul>
+
+<h2>4.2 Clase Riego - Análisis Profundo</h2>
+
+<h3>Atributos y su Significado</h3>
+<table>
+    <tr>
+        <th>Atributo</th>
+        <th>Tipo</th>
+        <th>Descripción</th>
+        <th>Ejemplo</th>
+    </tr>
+    <tr>
+        <td>idRiego</td>
+        <td>Número entero</td>
+        <td>Identificador único del riego</td>
+        <td>5001</td>
+    </tr>
+    <tr>
+        <td>idCultivo</td>
+        <td>Número entero</td>
+        <td>A qué cultivo pertenece</td>
+        <td>1001</td>
+    </tr>
+    <tr>
+        <td>cantidadAgua</td>
+        <td>Número decimal</td>
+        <td>Litros de agua usados</td>
+        <td>150.5</td>
+    </tr>
+    <tr>
+        <td>fechaRiego</td>
+        <td>Fecha</td>
+        <td>Cuándo se realizó o realizará</td>
+        <td>20/03/2024</td>
+    </tr>
+    <tr>
+        <td>esProgramado</td>
+        <td>Verdadero/Falso</td>
+        <td>Si ya se hizo (true) o está pendiente (false)</td>
+        <td>true</td>
+    </tr>
+</table>
+
+<h3>Característica Especial: Riegos Programados</h3>
+<p>
+El sistema permite registrar riegos que aún no se han realizado (ejecutado = false). Esto es útil para planificar el trabajo futuro. Cuando se realiza el riego, se marca como ejecutado (ejecutado = true).
+</p>
+
+<h2>4.3 Clase Fertilizacion - Análisis Profundo</h2>
+
+<h3>Atributos y su Significado</h3>
+<table>
+    <tr>
+        <th>Atributo</th>
+        <th>Tipo</th>
+        <th>Descripción</th>
+        <th>Ejemplo</th>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>Número entero</td>
+        <td>Identificador único</td>
+        <td>3001</td>
+    </tr>
+    <tr>
+        <td>cultivoId</td>
+        <td>Número entero</td>
+        <td>A qué cultivo se aplicó</td>
+        <td>1001</td>
+    </tr>
+    <tr>
+        <td>tipoFertilizante</td>
+        <td>Texto</td>
+        <td>Tipo de fertilizante usado</td>
+        <td>"Nitrógeno Líquido"</td>
+    </tr>
+    <tr>
+        <td>cantidad</td>
+        <td>Número decimal</td>
+        <td>Cuánto se aplicó</td>
+        <td>25.0</td>
+    </tr>
+    <tr>
+        <td>unidad</td>
+        <td>UnidadFertilizante</td>
+        <td>Unidad de medida</td>
+        <td>LITROS</td>
+    </tr>
+    <tr>
+        <td>fecha</td>
+        <td>Fecha</td>
+        <td>Cuándo se aplicó</td>
+        <td>18/03/2024</td>
+    </tr>
+</table>
+
+<h3>Característica Especial: Unidades de Medida</h3>
+<p>
+El sistema soporta tres unidades diferentes porque los fertilizantes vienen en diferentes presentaciones:
+</p>
+<ul>
+    <li><strong>KG:</strong> Para fertilizantes sólidos (ej: urea en sacos)</li>
+    <li><strong>LITROS:</strong> Para fertilizantes líquidos (ej: soluciones nutritivas)</li>
+    <li><strong>METROS_CUBICOS:</strong> Para grandes volúmenes (ej: compost)</li>
+</ul>
+
+<h2>4.4 Clase Cosecha - Análisis Profundo</h2>
+
+<h3>Atributos y su Significado</h3>
+<table>
+    <tr>
+        <th>Atributo</th>
+        <th>Tipo</th>
+        <th>Descripción</th>
+        <th>Ejemplo</th>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>Número entero</td>
+        <td>Identificador único</td>
+        <td>4001</td>
+    </tr>
+    <tr>
+        <td>cultivoId</td>
+        <td>Número entero</td>
+        <td>Qué cultivo se cosechó</td>
+        <td>1001</td>
+    </tr>
+    <tr>
+        <td>cantidad</td>
+        <td>Número decimal</td>
+        <td>Kilogramos obtenidos</td>
+        <td>450.5</td>
+    </tr>
+    <tr>
+        <td>fecha</td>
+        <td>Fecha</td>
+        <td>Cuándo se cosechó</td>
+        <td>15/06/2024</td>
+    </tr>
+    <tr>
+        <td>rendimiento</td>
+        <td>Número decimal</td>
+        <td>Kg por día (calculado automáticamente)</td>
+        <td>4.87</td>
+    </tr>
+</table>
+
+<h3>Cálculo Automático del Rendimiento</h3>
+<p>
+El sistema calcula automáticamente el rendimiento usando esta fórmula:
+</p>
+<div class="example-box">
+    <strong>Rendimiento = Cantidad Cosechada ÷ Días desde la Siembra</strong>
+    <p>Ejemplo: Si se cosecharon 450.5 kg después de 92 días desde la siembra:</p>
+    <p>Rendimiento = 450.5 ÷ 92 = 4.89 kg/día</p>
+</div>
+
+<p>
+Este cálculo es importante porque permite comparar la productividad de diferentes cultivos independientemente de cuánto tiempo estuvieron en el campo.
+</p>
+
+<h2>4.5 Clase Reporte - Análisis Profundo</h2>
+
+<h3>Atributos y su Significado</h3>
+<table>
+    <tr>
+        <th>Atributo</th>
+        <th>Tipo</th>
+        <th>Descripción</th>
+        <th>Ejemplo</th>
+    </tr>
+    <tr>
+        <td>nombreTemporada</td>
+        <td>Texto</td>
+        <td>Nombre de la temporada</td>
+        <td>"Primavera 2024"</td>
+    </tr>
+    <tr>
+        <td>fechaInicio</td>
+        <td>Fecha</td>
+        <td>Inicio del período del reporte</td>
+        <td>01/03/2024</td>
+    </tr>
+    <tr>
+        <td>fechaFin</td>
+        <td>Fecha</td>
+        <td>Fin del período del reporte</td>
+        <td>31/05/2024</td>
+    </tr>
+    <tr>
+        <td>cultivoId</td>
+        <td>Texto</td>
+        <td>ID del cultivo reportado</td>
+        <td>"C001"</td>
+    </tr>
+    <tr>
+        <td>tipoPlanta</td>
+        <td>Texto</td>
+        <td>Tipo de planta del cultivo</td>
+        <td>"Tomate Cherry"</td>
+    </tr>
+    <tr>
+        <td>fechaSiembra</td>
+        <td>Fecha</td>
+        <td>Cuándo se sembró</td>
+        <td>15/03/2024</td>
+    </tr>
+    <tr>
+        <td>numeroRiegos</td>
+        <td>Número entero</td>
+        <td>Riegos en el período</td>
+        <td>25</td>
+    </tr>
+    <tr>
+        <td>litrosUsados</td>
+        <td>Número decimal</td>
+        <td>Total de litros usados</td>
+        <td>3750.5</td>
+    </tr>
+    <tr>
+        <td>numeroFertilizaciones</td>
+        <td>Número entero</td>
+        <td>Fertilizaciones aplicadas</td>
+        <td>8</td>
+    </tr>
+    <tr>
+        <td>numeroCosechas</td>
+        <td>Número entero</td>
+        <td>Cosechas realizadas</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>kgCosechados</td>
+        <td>Número decimal</td>
+        <td>Total de kg cosechados</td>
+        <td>450.5</td>
+    </tr>
+    <tr>
+        <td>rendimientoPromedio</td>
+        <td>Número decimal</td>
+        <td>Promedio de rendimiento</td>
+        <td>4.87</td>
+    </tr>
+    <tr>
+        <td>observaciones</td>
+        <td>Texto</td>
+        <td>Notas del cultivo</td>
+        <td>"Buen desarrollo"</td>
+    </tr>
+</table>
+
+<h3>Generación de Reportes por Cultivo</h3>
+<p>
+El sistema genera reportes de manera individual para cada cultivo. Cuando se solicita un reporte de temporada, el proceso es:
+</p>
+<ol>
+    <li>Se define un rango de fechas (fechaInicio - fechaFin)</li>
+    <li>Se buscan todos los cultivos que estuvieron activos en ese período</li>
+    <li>Para CADA cultivo, se crea un reporte individual que contiene:
+        <ul>
+            <li>Todos los riegos realizados en ese período</li>
+            <li>Todas las fertilizaciones aplicadas en ese período</li>
+            <li>Todas las cosechas realizadas en ese período</li>
+            <li>Estadísticas calculadas (totales y promedios)</li>
+        </ul>
+    </li>
+    <li>Solo se incluyen cultivos que tuvieron al menos una actividad en el período</li>
+</ol>
+
+<div class="example-box">
+    <strong>Ejemplo de Generación de Reportes:</strong>
+    <p>Si tienes 5 cultivos activos en la temporada "Primavera 2024" (01/03/2024 - 31/05/2024), el sistema generará 5 reportes separados, uno para cada cultivo, con sus estadísticas individuales.</p>
+</div>
+
+<h3>Inmutabilidad del Reporte</h3>
+<p>
+Una característica importante de la clase Reporte es que es <strong>inmutable</strong>. Esto significa que:
+</p>
+<ul>
+    <li>Solo tiene métodos getters (para leer datos)</li>
+    <li>NO tiene métodos setters (para modificar datos)</li>
+    <li>Una vez creado, el reporte no puede ser modificado</li>
+    <li>Esto garantiza que los reportes históricos permanezcan intactos</li>
+</ul>
+
+<hr style="margin: 30px 0;">
+
+<h1>5. RELACIONES ENTRE COMPONENTES</h1>
+
+<h2>5.1 Diagrama de Relaciones</h2>
+<p>
+Las relaciones entre componentes son fundamentales para entender cómo funciona el sistema. Aquí está el mapa completo de conexiones:
+</p>
+
+<div class="example-box">
+    <strong>Jerarquía de Dependencias:</strong>
+    <pre style="font-family: monospace; line-height: 1.8;">
+ProyectoAgroCare (Interfaz de Usuario)
+    ↓
+SistemaAgroCare (Coordinador Central)
+    ↓
+    ├── GestorCultivo ──→ Cultivo
+    ├── GestorRiego ──→ Riego
+    ├── GestorFertilizacion ──→ Fertilizacion
+    ├── GestorCosecha ──→ Cosecha
+    └── GestorReporte ──→ Reporte
+    </pre>
+</div>
+
+<h2>5.2 Relaciones de Referencia</h2>
+<p>
+Cada actividad (Riego, Fertilizacion, Cosecha) está vinculada a un Cultivo a través del <code>idCultivo</code>. Esto crea una relación de "pertenencia":
+</p>
+
+<table>
+    <tr>
+        <th>Entidad Principal</th>
+        <th>Entidades Dependientes</th>
+        <th>Tipo de Relación</th>
+    </tr>
+    <tr>
+        <td>Cultivo</td>
+        <td>Riego, Fertilizacion, Cosecha</td>
+        <td>Uno a Muchos (1:N)</td>
+    </tr>
+    <tr>
+        <td>Temporada</td>
+        <td>Cultivo, Reporte</td>
+        <td>Uno a Muchos (1:N)</td>
+    </tr>
+</table>
+
+<div class="info-box">
+    <strong>💡 Explicación Simple:</strong>
+    <ul>
+        <li>Un cultivo puede tener muchos riegos, pero cada riego pertenece a un solo cultivo</li>
+        <li>Un cultivo puede tener muchas fertilizaciones, pero cada fertilización pertenece a un solo cultivo</li>
+        <li>Un cultivo puede tener muchas cosechas, pero cada cosecha pertenece a un solo cultivo</li>
+        <li>Una temporada puede tener muchos cultivos, pero cada cultivo pertenece a una sola temporada</li>
+    </ul>
+</div>
+
+<h2>5.3 Comunicación Entre Gestores</h2>
+<p>
+Los gestores se comunican entre sí para mantener la integridad de los datos. Aquí están las principales interacciones:
+</p>
+
+<h3>GestorCultivo ↔ Otros Gestores</h3>
+<p>
+Antes de eliminar un cultivo, el GestorCultivo pregunta a los demás gestores:
+</p>
+<ul>
+    <li><strong>GestorRiego:</strong> "¿Este cultivo tiene riegos registrados?"</li>
+    <li><strong>GestorFertilizacion:</strong> "¿Este cultivo tiene fertilizaciones?"</li>
+    <li><strong>GestorCosecha:</strong> "¿Este cultivo tiene cosechas?"</li>
+</ul>
+<p>
+Si alguno responde "Sí", el cultivo NO se puede eliminar. Solo se puede desactivar.
+</p>
+
+<h3>GestorReporte → Todos los Gestores</h3>
+<p>
+Cuando se genera un reporte, el GestorReporte consulta a todos:
+</p>
+<ul>
+    <li><strong>GestorCultivo:</strong> "Dame todos los cultivos de esta temporada"</li>
+    <li><strong>GestorRiego:</strong> "Dame todos los riegos de esta temporada"</li>
+    <li><strong>GestorFertilizacion:</strong> "Dame todas las fertilizaciones de esta temporada"</li>
+    <li><strong>GestorCosecha:</strong> "Dame todas las cosechas de esta temporada"</li>
+</ul>
+
+
+
+<hr style="margin: 30px 0;">
+
+<h1>6. VALIDACIONES Y RESTRICCIONES</h1>
+
+<h2>6.1 Validaciones de Integridad Referencial</h2>
+<p>
+Estas validaciones aseguran que las referencias entre entidades sean correctas:
+</p>
+
+<table>
+    <tr>
+        <th>Operación</th>
+        <th>Validación</th>
+        <th>Mensaje de Error</th>
+    </tr>
+    <tr>
+        <td>Registrar Riego</td>
+        <td>El cultivo debe existir y estar activo</td>
+        <td>"El cultivo no existe o está inactivo"</td>
+    </tr>
+    <tr>
+        <td>Registrar Fertilización</td>
+        <td>El cultivo debe existir y estar activo</td>
+        <td>"El cultivo no existe o está inactivo"</td>
+    </tr>
+    <tr>
+        <td>Registrar Cosecha</td>
+        <td>El cultivo debe existir y estar activo</td>
+        <td>"El cultivo no existe o está inactivo"</td>
+    </tr>
+    <tr>
+        <td>Eliminar Cultivo</td>
+        <td>No debe tener actividades asociadas</td>
+        <td>"No se puede eliminar: tiene actividades asociadas"</td>
+    </tr>
+</table>
+
+<h2>6.2 Validaciones de Datos</h2>
+<p>
+Estas validaciones aseguran que los datos ingresados sean lógicos y correctos:
+</p>
+
+<h3>Cultivo</h3>
+<ul>
+    <li><code>id</code> debe ser único (no puede haber dos cultivos con el mismo ID)</li>
+    <li><code>tipoPlanta</code> no puede estar vacío</li>
+    <li><code>area</code> no puede estar vacía y debe ser numero o decimal</li>
+    <li><code>fechaSiembra</code> debe ser una fecha válida</li>
+    <li><code>observacion</code> puede estar vacía</li>
+</ul>
+
+<h3>Riego</h3>
+<ul>
+    <li><code>id</code> debe ser único</li>
+    <li><code>cantidadAgua</code> debe ser mayor que 0</li>
+    <li><code>fecha</code> debe ser una fecha válida</li>
+    <li><code>CultivoId</code> debe corresponder a un cultivo existente y activo</li>
+</ul>
+
+<h3>Fertilizacion</h3>
+<ul>
+    <li><code>id</code> debe ser único</li>
+    <li><code>tipoFertilizante</code> no puede estar vacío</li>
+    <li><code>cantidad</code> debe ser mayor que 0</li>
+    <li><code>unidad</code> debe ser una de las opciones válidas (KG, LITROS, METROS_CUBICOS)</li>
+    <li><code>fecha</code> debe ser una fecha válida</li>
+    <li><code>idCultivo</code> debe corresponder a un cultivo existente y activo</li>
+</ul>
+
+<h3>Cosecha</h3>
+<ul>
+    <li><code>id</code> debe ser único</li>
+    <li><code>cantidad</code> debe ser mayor que 0</li>
+    <li><code>fecha</code> debe ser una fecha válida</li>
+    <li><code>cultivoId</code> debe corresponder a un cultivo existente y activo</li>
+</ul>
+
+<h3>Reporte</h3>
+<ul>
+    <li><code>nombreTemporada</code> no puede estar vacío</li>
+    <li><code>fechaInicio</code> y <code>fechaFin</code> deben ser fechas válidas</li>
+    <li><code>fechaInicio</code> debe ser anterior o igual a <code>fechaFin</code></li>
+    <li><code>cultivoId</code> debe corresponder a un cultivo existente y activo</li>
+    <li><code>tipoPlanta</code> no puede estar vacío</li>
+    <li><code>fechaSiembra</code> debe ser una fecha válida</li>
+    <li><code>numeroRiegos</code>, <code>numeroFertilizaciones</code>, <code>numeroCosechas</code> deben ser >= 0</li>
+    <li><code>litrosUsados</code>, <code>kgCosechados</code> deben ser >= 0</li>
+    <li><code>rendimientoPromedio</code> puede ser 0 si no hay cosechas</li>
+</ul>
+
+
+<h2>6.4 Validaciones de Eliminación</h2>
+<p>
+El sistema tiene reglas estrictas sobre qué se puede eliminar y cuándo:
+</p>
+
+<table>
+    <tr>
+        <th>Entidad</th>
+        <th>¿Se puede eliminar?</th>
+        <th>Condiciones</th>
+    </tr>
+    <tr>
+        <td>Cultivo</td>
+        <td>Sí, con restricciones</td>
+        <td>Solo si NO tiene riegos, fertilizaciones ni cosechas</td>
+    </tr>
+    <tr>
+        <td>Riego</td>
+        <td>Sí, siempre</td>
+        <td>Sin restricciones</td>
+    </tr>
+    <tr>
+        <td>Fertilización</td>
+        <td>Sí, siempre</td>
+        <td>Sin restricciones</td>
+    </tr>
+    <tr>
+        <td>Cosecha</td>
+        <td>Sí, siempre</td>
+        <td>Sin restricciones</td>
+    </tr>
+    <tr>
+        <td>Reporte</td>
+        <td>Sí, siempre</td>
+        <td>Sin restricciones (no afecta otros datos)</td>
+    </tr>
+</table>
+
+<hr style="margin: 30px 0;">
+
+<h1>7. FLUJO LÓGICO DEL SISTEMA</h1>
+
+<h2>7.1 Inicio del Sistema</h2>
+<p>
+Cuando el programa arranca, ocurre la siguiente secuencia:
+</p>
+
+<div class="example-box">
+    <strong>Secuencia de Inicio:</strong>
+    <ol>
+        <li><strong>Paso 1:</strong> Se ejecuta el método <code>main()</code> en ProyectoAgroCare</li>
+        <li><strong>Paso 2:</strong> Se crea una instancia de SistemaAgroCare</li>
+        <li><strong>Paso 3:</strong> SistemaAgroCare inicializa todos los gestores:
+            <ul>
+                <li>Crea GestorCultivo</li>
+                <li>Crea GestorRiego</li>
+                <li>Crea GestorFertilizacion</li>
+                <li>Crea GestorCosecha</li>
+                <li>Crea GestorReporte</li>
+            </ul>
+        </li>
+        <li><strong>Paso 4:</strong> SistemaAgroCare establece las referencias cruzadas entre gestores</li>
+        <li><strong>Paso 5:</strong> Se cargan los datos desde archivos (si existen)</li>
+        <li><strong>Paso 6:</strong> Se muestra el menú principal al usuario</li>
+    </ol>
+</div>
+
+<h2>7.2 Flujo de Operación: Agregar un Cultivo</h2>
+<p>
+Veamos paso a paso qué sucede cuando un usuario agrega un cultivo:
+</p>
+
+<div class="example-box">
+    <strong>Flujo Completo:</strong>
+    <ol>
+        <li><strong>Usuario:</strong> Selecciona "1. Gestión de Cultivos" en el menú principal</li>
+        <li><strong>Sistema:</strong> Muestra el submenú de cultivos</li>
+        <li><strong>Usuario:</strong> Selecciona "1. Agregar Cultivo"</li>
+        <li><strong>Sistema:</strong> Solicita datos:
+
+        </li>
+        <li><strong>Usuario:</strong> Ingresa los datos</li>
+        <li><strong>ProyectoAgroCare:</strong> Envía los datos a SistemaAgroCare</li>
+        <li><strong>SistemaAgroCare:</strong> Reenvía la solicitud a GestorCultivo</li>
+        <li><strong>GestorCultivo:</strong> Valida que el ID no exista</li>
+        <li><strong>GestorCultivo:</strong> Crea el objeto Cultivo</li>
+        <li><strong>GestorCultivo:</strong> Agrega el cultivo a su lista interna</li>
+        <li><strong>GestorCultivo:</strong> Retorna confirmación de éxito</li>
+        <li><strong>Sistema:</strong> Muestra mensaje: "Cultivo agregado exitosamente"</li>
+    </ol>
+</div>
+
+<h2>7.3 Flujo de Operación: Registrar un Riego</h2>
+<p>
+Este flujo es más complejo porque requiere validar que el cultivo exista:
+</p>
+
+<div class="example-box">
+    <strong>Flujo Completo:</strong>
+    <ol>
+        <li><strong>Usuario:</strong> Selecciona "3. Gestión de Riegos" → "1. Registrar Riego"</li>
+        <li><strong>Sistema:</strong> Solicita datos:
+        
+        </li>
+        <li><strong>Usuario:</strong> Ingresa los datos</li>
+        <li><strong>ProyectoAgroCare:</strong> Envía los datos a SistemaAgroCare</li>
+        <li><strong>SistemaAgroCare:</strong> Reenvía la solicitud a GestorRiego</li>
+        <li><strong>GestorRiego:</strong> Valida que el ID del riego no exista</li>
+        <li><strong>GestorRiego:</strong> Consulta a GestorCultivo: "¿Existe el cultivo con ID X?"</li>
+        <li><strong>GestorCultivo:</strong> Busca el cultivo y responde</li>
+        <li><strong>GestorRiego:</strong> Valida que el cultivo esté activo</li>
+        <li><strong>GestorRiego:</strong> Si todo está bien, crea el objeto Riego</li>
+        <li><strong>GestorRiego:</strong> Agrega el riego a su lista interna</li>
+        <li><strong>GestorRiego:</strong> Retorna confirmación de éxito</li>
+        <li><strong>Sistema:</strong> Muestra mensaje: "Riego registrado exitosamente"</li>
+    </ol>
+</div>
+
+<h2>7.4 Flujo de Operación: Eliminar un Cultivo</h2>
+<p>
+Este es el flujo más complejo porque requiere verificar múltiples condiciones:
+</p>
+
+<div class="example-box">
+    <strong>Flujo Completo:</strong>
+    <ol>
+        <li><strong>Usuario:</strong> Selecciona "1. Gestión de Cultivos" → "4. Eliminar Cultivo"</li>
+        <li><strong>Sistema:</strong> Solicita el ID del cultivo a eliminar</li>
+        <li><strong>Usuario:</strong> Ingresa el ID</li>
+        <li><strong>ProyectoAgroCare:</strong> Envía la solicitud a SistemaAgroCare</li>
+        <li><strong>SistemaAgroCare:</strong> Reenvía la solicitud a GestorCultivo</li>
+        <li><strong>GestorCultivo:</strong> Busca el cultivo por ID</li>
+        <li><strong>GestorCultivo:</strong> Si no existe, retorna error: "Cultivo no encontrado"</li>
+        <li><strong>GestorCultivo:</strong> Pregunta a GestorRiego: "¿Este cultivo tiene riegos?"</li>
+        <li><strong>GestorRiego:</strong> Cuenta los riegos del cultivo y responde</li>
+        <li><strong>GestorCultivo:</strong> Pregunta a GestorFertilizacion: "¿Este cultivo tiene fertilizaciones?"</li>
+        <li><strong>GestorFertilizacion:</strong> Cuenta las fertilizaciones y responde</li>
+        <li><strong>GestorCultivo:</strong> Pregunta a GestorCosecha: "¿Este cultivo tiene cosechas?"</li>
+        <li><strong>GestorCosecha:</strong> Cuenta las cosechas y responde</li>
+        <li><strong>GestorCultivo:</strong> Si hay actividades, retorna error: "No se puede eliminar: tiene actividades asociadas. Use desactivar."</li>
+        <li><strong>GestorCultivo:</strong> Si no hay actividades, elimina el cultivo de su lista</li>
+        <li><strong>GestorCultivo:</strong> Retorna confirmación de éxito</li>
+        <li><strong>Sistema:</strong> Muestra mensaje: "Cultivo eliminado exitosamente"</li>
+    </ol>
+</div>
+
+<h2>7.5 Flujo de Operación: Generar un Reporte</h2>
+<p>
+Este flujo recopila información de todos los gestores y genera reportes individuales por cultivo:
+</p>
+
+<div class="example-box">
+    <strong>Flujo Completo:</strong>
+    <ol>
+        <li><strong>Usuario:</strong> Selecciona "5. Gestión de Reportes" → "1. Generar Reporte"</li>
+        <li><strong>Sistema:</strong> Solicita datos:
+            <ul>
+                <li>Nombre de la temporada</li>
+                <li>Fecha de inicio del período</li>
+                <li>Fecha de fin del período</li>
+            </ul>
+        </li>
+        <li><strong>Usuario:</strong> Ingresa los datos</li>
+        <li><strong>ProyectoAgroCare:</strong> Envía la solicitud a SistemaAgroCare</li>
+        <li><strong>SistemaAgroCare:</strong> Reenvía la solicitud a GestorReporte</li>
+        <li><strong>GestorReporte:</strong> Valida que las fechas sean correctas</li>
+        <li><strong>GestorReporte:</strong> Consulta a GestorCultivo: "Dame todos los cultivos"</li>
+        <li><strong>GestorReporte:</strong> Filtra los cultivos que estuvieron activos en el período</li>
+        <li><strong>GestorReporte:</strong> Para CADA cultivo:
+            <ul>
+                <li>Filtra los riegos del cultivo en el rango de fechas</li>
+                <li>Calcula el total de litros usados</li>
+                <li>Filtra las fertilizaciones del cultivo en el rango de fechas</li>
+                <li>Filtra las cosechas del cultivo en el rango de fechas</li>
+                <li>Calcula el total de kg cosechados</li>
+                <li>Calcula el rendimiento promedio</li>
+                <li>Si el cultivo tuvo al menos una actividad, crea un Reporte individual</li>
+            </ul>
+        </li>
+        <li><strong>GestorReporte:</strong> Guarda todos los reportes generados</li>
+        <li><strong>GestorReporte:</strong> Retorna la lista de reportes</li>
+        <li><strong>Sistema:</strong> Muestra todos los reportes generados (uno por cultivo)</li>
+    </ol>
+</div>
+
+<div class="warning-box">
+    <strong>⚠️ Importante:</strong> El sistema genera UN reporte por CADA cultivo que tuvo actividad en el período. No es un reporte único consolidado, sino múltiples reportes individuales.
+</div>
+
+
+
+
+
+<h1>8. PERSISTENCIA DE DATOS</h1>
+
+<h2>8.1 ¿Qué es la Persistencia?</h2>
+<p>
+La persistencia es la capacidad del sistema de <strong>guardar información de forma permanente</strong> para que no se pierda cuando el programa se cierra. Es como guardar un documento en tu computadora en lugar de solo tenerlo en la memoria.
+</p>
+
+<h2>8.2 Mecanismo de Guardado</h2>
+<p>
+AgroCare guarda la información en arrays pero esta adaptado para posteriormente usar archivosde texto. Cada tipo de información tiene su propio archivo:
+</p>
+
+<h2>8.3 Proceso de Carga</h2>
+<p>
+Cuando el sistema arranca, lee estos archivos y reconstruye todos los objetos en memoria:
+</p>
+
+<div class="example-box">
+    <strong>Proceso de Carga:</strong>
+    <ol>
+        <li>El sistema verifica si existen los archivos de datos</li>
+        <li>Si existen, lee cada línea del archivo</li>
+        <li>Divide cada línea en sus componentes (ID, nombre, ubicación, etc.)</li>
+        <li>Crea un objeto (Cultivo, Riego, etc.) con esos datos</li>
+        <li>Agrega el objeto a la lista correspondiente en el gestor</li>
+        <li>Repite para todas las líneas del archivo</li>
+    </ol>
+</div>
+
+<h2>8.5 Proceso de Guardado</h2>
+<p>
+Cuando el usuario sale del sistema o cuando se solicita explícitamente:
+</p>
+
+<div class="example-box">
+    <strong>Proceso de Guardado:</strong>
+    <ol>
+        <li>Cada gestor recorre su lista de objetos</li>
+        <li>Para cada objeto, extrae todos sus datos</li>
+        <li>Convierte los datos en una línea de texto con formato CSV</li>
+        <li>Escribe la línea en el archivo correspondiente</li>
+        <li>Repite para todos los objetos</li>
+        <li>Cierra el archivo para asegurar que los datos se guarden</li>
+    </ol>
+</div>
+
+<hr style="margin: 30px 0;">
+
+<h1>10. CONCLUSIÓN</h1>
+
+<h2>Resumen del Sistema</h2>
+<p>
+AgroCare es un sistema integral de gestión agrícola que permite a los agricultores llevar un control detallado y organizado de todas sus actividades. El sistema está diseñado con una arquitectura de capas que separa claramente las responsabilidades:
+</p>
+
+<ul>
+    <li><strong>Capa de Datos:</strong> Clases que representan la información (Cultivo, Riego, Fertilizacion, Cosecha, Reporte)</li>
+    <li><strong>Capa de Lógica:</strong> Gestores que implementan las reglas del negocio y validaciones</li>
+    <li><strong>Capa de Coordinación:</strong> SistemaAgroCare que orquesta todo</li>
+    <li><strong>Capa de Presentación:</strong> ProyectoAgroCare que interactúa con el usuario</li>
+</ul>
+
+<p>
+Este sistema puede servir como base para desarrollos más complejos o como referencia para entender cómo estructurar aplicaciones de gestión empresarial.
+</p>
+
+<hr style="margin: 30px 0;">
+
+<div style="text-align: center; padding: 40px 0; background-color: #f5f5f5; margin-top: 50px;">
+    <h2 style="color: #2c5f2d;">FIN DE LA DOCUMENTACIÓN</h2>
+    <p style="color: #666;">Sistema AgroCare - Versión 1.0</p>
+    <p style="color: #999; font-size: 10pt;">Documentación generada para comprensión completa del sistema</p>
+</div>
+
+</body>
+</html>

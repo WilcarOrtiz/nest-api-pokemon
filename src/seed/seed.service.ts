@@ -14,6 +14,7 @@ export class SeedService {
   ) {}
 
   /* cambios */
+  // cambios 
   //! FORMA 1:para insetar lotes de registros de manera eficiente
   /*  async executeSeed() {
     await this.pokemonModel.deleteMany({});
